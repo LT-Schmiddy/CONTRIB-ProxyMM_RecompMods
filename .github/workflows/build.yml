@@ -1,0 +1,52 @@
+name: build
+on:
+  push:
+    inputs:
+      N64RECOMP_COMMIT:
+        type: string
+        required: false
+        default: 'be65d37760e56867fc5ac68510ffdc0f6e00bbb5'
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+    name: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          submodules: recursive
+      - name: ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+        with:
+          key: ubuntu-ccache-x64-${{ inputs.N64RECOMP_COMMIT }}
+      - name: Install Deps
+        run: sudo apt-get update && sudo apt-get install -y ninja-build lld
+      - name: Build Mod
+        run: make
+      - name: Build RecompModTool
+        run: |
+          git clone https://github.com/Mr-Wiseguy/N64Recomp.git --recurse-submodules N64RecompSource
+          cd N64RecompSource
+          git checkout ${{ inputs.N64RECOMP_COMMIT }}
+          git submodule update --init --recursive
+          
+          export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
+          
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=g++-11 -DCMAKE_C_COMPILER=gcc-11 -DCMAKE_MAKE_PROGRAM=ninja -G Ninja -S . -B cmake-build
+          cmake --build cmake-build --config Release --target RecompModTool -j $(nproc)
+          
+          cp cmake-build/RecompModTool ..
+      - name: Run RecompModTool
+        run: |
+          ./RecompModTool mod.toml build/
+          mv build/proxy_dev_tools.nrm .
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: proxy_dev_tools
+          path: |
+            proxy_dev_tools.nrm
+            icon.png
+            manifest.json
+            README.md

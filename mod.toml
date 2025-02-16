@@ -1,0 +1,69 @@
+[manifest]
+id = "proxy_dev_tools"
+version = "0.0.1"
+display_name = "ProxyDevTools"
+description =  """
+A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.<br/>
+<br/>
+<div style="color: rgba(255,255,255,0.5);">
+All features are off by default, and need to be enabled in the Configuration menu.<br/>
+<br/>
+<h3>Features:</h3><br/>
+- <span style="color: white;">Hold L to levitate</span><br/>
+- <span style="color: white;">Inventory Editor</span> - Press L on the pause menu to enable editing of the inventory, then press A to grant/remove an item<br/>
+- <span style="color: white;">Map Select</span> - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes<br/>
+</div>
+"""
+short_description = "A collection of developer tools"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "proxy_dev_tools"
+func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml", "custom_syms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "l_to_levitate"
+name = "Hold L to levitate"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "inventory_editor"
+name = "Inventory Editor"
+description = "Press L on the pause menu to enable editing of the inventory, then press A to grant/remove an item"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "map_select"
+name = "Map Select"
+description = "L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+#[[manifest.config_options]]
+#id = "debug_save"
+#name = "Debug Save"
+#description = "New files created with 100% of the inventory filled"
+#type = "Enum"
+#options = [ "Off", "On" ]
+#default = "Off"
+
+#[[manifest.config_options]]
+#id = "no_clip"
+#name = "No Clip"
+#description = "Ported from OoT Debug mode, Hold L and press D-pad right to activate"
+#type = "Enum"
+#options = [ "Off", "On" ]
+#default = "Off"
