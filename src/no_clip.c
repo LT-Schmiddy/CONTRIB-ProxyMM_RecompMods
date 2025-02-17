@@ -97,8 +97,7 @@ s32 Player_UpdateNoclip(Player* this, PlayState* play) {
     return true;
 }
 
-// TODO: Waiting for this event to be upstream
-// RECOMP_CALLBACK("*", recomp_should_actor_update) 
+RECOMP_CALLBACK("*", recomp_should_actor_update) 
 void ShouldActorUpdate(PlayState* play, Actor* actor, bool* should) {
     if (actor->id != ACTOR_PLAYER) return;
     if (!recomp_get_config_u32("no_clip")) return;

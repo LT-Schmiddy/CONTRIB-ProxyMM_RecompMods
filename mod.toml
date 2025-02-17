@@ -1,6 +1,6 @@
 [manifest]
 id = "proxy_dev_tools"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "ProxyDevTools"
 description =  """
 A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.<br/>
@@ -12,6 +12,8 @@ All features are off by default, and need to be enabled in the Configuration men
 - <span style="color: white;">Hold L to levitate</span><br/>
 - <span style="color: white;">Inventory Editor</span> - Press L on the pause menu to enable editing of the inventory, then press A to grant/remove an item<br/>
 - <span style="color: white;">Map Select</span> - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes<br/>
+- <span style="color: white;">Debug Save</span> - New files created with 100% of the inventory filled<br/>
+- <span style="color: white;">No Clip</span> - Ported from OoT Debug mode, Hold L and press D-pad right to activate<br/>
 </div>
 """
 short_description = "A collection of developer tools"
@@ -52,18 +54,18 @@ type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"
 
-#[[manifest.config_options]]
-#id = "debug_save"
-#name = "Debug Save"
-#description = "New files created with 100% of the inventory filled"
-#type = "Enum"
-#options = [ "Off", "On" ]
-#default = "Off"
+[[manifest.config_options]]
+id = "debug_save"
+name = "Debug Save"
+description = "New files created with 100% of the inventory filled"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
 
-#[[manifest.config_options]]
-#id = "no_clip"
-#name = "No Clip"
-#description = "Ported from OoT Debug mode, Hold L and press D-pad right to activate"
-#type = "Enum"
-#options = [ "Off", "On" ]
-#default = "Off"
+[[manifest.config_options]]
+id = "no_clip"
+name = "No Clip"
+description = "Ported from OoT Debug mode, Hold L and press D-pad right to activate"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

@@ -9,8 +9,7 @@
 RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
 extern u16 sPersistentCycleWeekEventRegs[ARRAY_COUNT(gSaveContext.save.saveInfo.weekEventReg)];
 
-// TODO: Waiting for this event to be upstream
-// RECOMP_CALLBACK("*", recomp_on_init_save) 
+RECOMP_CALLBACK("*", recomp_after_init_save) 
 void OnInitSave(FileSelectState* fileSelect, SramContext* sramCtx) {
     if (!recomp_get_config_u32("debug_save")) return;
 
@@ -86,6 +85,4 @@ void OnInitSave(FileSelectState* fileSelect, SramContext* sramCtx) {
             isPersistentBits >>= 2;
         }
     }
-
-    gSaveContext.save.saveInfo.checksum = Sram_CalcChecksum(&gSaveContext.save, sizeof(Save));
 }
