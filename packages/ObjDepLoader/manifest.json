@@ -1,0 +1,7 @@
+{
+    "name": "ObjDepLoader",
+    "version_number": "0.0.2",
+    "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
+    "description": "A simple workaround for object dependency",
+    "dependencies": []
+}

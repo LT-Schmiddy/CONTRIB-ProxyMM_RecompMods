@@ -1,7 +1,7 @@
 [manifest]
-id = "proxy_dev_tools"
-version = "0.0.2"
-display_name = "ProxyDevTools"
+id = "ProxyMM_DevTools"
+version = "0.0.3"
+display_name = "DevTools"
 description =  """
 A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.<br/>
 <br/>
@@ -24,10 +24,10 @@ dependencies = []
 native_libraries = []
 
 [inputs]
-elf_path = "build/mod.elf"
-mod_filename = "proxy_dev_tools"
-func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
-data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml", "custom_syms.toml" ]
+elf_path = "../../build/packages/DevTools/mod.elf"
+mod_filename = "ProxyMM_DevTools"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml", "../../custom_syms.toml" ]
 additional_files = [ "thumb.png" ]
 
 [[manifest.config_options]]

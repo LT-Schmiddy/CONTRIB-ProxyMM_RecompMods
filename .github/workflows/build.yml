@@ -7,23 +7,16 @@ on:
         required: false
         default: 'be65d37760e56867fc5ac68510ffdc0f6e00bbb5'
 jobs:
-  build-linux:
+  prepare:
     runs-on: ubuntu-22.04
-    name: ubuntu-22.04
+    name: Prepare
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.ref }}
-          submodules: recursive
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
           key: ubuntu-ccache-x64-${{ inputs.N64RECOMP_COMMIT }}
       - name: Install Deps
-        run: sudo apt-get update && sudo apt-get install -y ninja-build lld
-      - name: Build Mod
-        run: make
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
       - name: Build RecompModTool
         run: |
           git clone https://github.com/Mr-Wiseguy/N64Recomp.git --recurse-submodules N64RecompSource
@@ -35,18 +28,48 @@ jobs:
           
           cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=g++-11 -DCMAKE_C_COMPILER=gcc-11 -DCMAKE_MAKE_PROGRAM=ninja -G Ninja -S . -B cmake-build
           cmake --build cmake-build --config Release --target RecompModTool -j $(nproc)
-          
+
           cp cmake-build/RecompModTool ..
-      - name: Run RecompModTool
+      - name: Store RecompModTool
+        uses: actions/upload-artifact@v4
+        with:
+          name: RecompModTool
+          path: RecompModTool
+  build-mods:
+    needs: prepare
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        mod_name: [DevTools, ObjDepLoader, CustomItem]
+    name: Build ${{ matrix.mod_name }}
+    steps:
+      - name: Install Deps
+        run: sudo apt-get update && sudo apt-get install -y ninja-build lld
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          submodules: recursive
+      - name: Restore RecompModTool
+        uses: actions/download-artifact@v4
+        with:
+          name: RecompModTool
+      - name: Build Mod
         run: |
-          ./RecompModTool mod.toml build/
-          mv build/proxy_dev_tools.nrm .
+          chmod +x RecompModTool && make MOD=${{ matrix.mod_name }}
+      - name: Prepare files
+        run: |
+          mv build/packages/${{ matrix.mod_name }}/ProxyMM_${{ matrix.mod_name }}.nrm .
+          mv packages/${{ matrix.mod_name }}/icon.png .
+          mv packages/${{ matrix.mod_name }}/manifest.json .
+          rm README.md
+          mv packages/${{ matrix.mod_name }}/README.md .
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: proxy_dev_tools
+          name: ProxyMM_${{ matrix.mod_name }}
           path: |
-            proxy_dev_tools.nrm
+            ProxyMM_${{ matrix.mod_name }}.nrm
             icon.png
             manifest.json
             README.md
