@@ -1,0 +1,72 @@
+[manifest]
+id = "ProxyMM_Restorations"
+version = "0.0.1"
+display_name = "Restorations"
+description =  """
+# Restorations
+Various toggle-able restorations, from OoT or other versions of MM<br/>
+<div style="color: rgba(255,255,255,0.5);">
+<br/>
+<h3>Features:</h3><br/>
+- <span style="color: white;">Faster Swim (Spam B)</span> - From OoT<br/>
+- <span style="color: white;">Tatl ISG</span> - From OoT<br/>
+- <span style="color: white;">Constant Backflip/Sidehop Distance</span> - From OoT<br/>
+- <span style="color: white;">Side Rolling</span> - From OoT<br/>
+- <span style="color: white;">Power Crouch Stab</span> - From JP & OoT<br/>
+<br/>
+Credit to @inspectredc & @itsheckinpat for the original implementation for some of these on 2Ship
+</div>
+"""
+short_description = "Various toggle-able restorations"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/Restorations/mod.elf"
+mod_filename = "ProxyMM_Restorations"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "power_crouch_stab"
+name = "Power Crouch Stab"
+description = "From JP 1.0 and OoT"
+type = "Enum"
+options = [ "US/EU (Patched)", "JP 1.0/1.1 (Start with no damage)", "OoT (Start with Kokiri Sword damage)" ]
+default = "US/EU (Patched)"
+
+[[manifest.config_options]]
+id = "tatl_isg"
+name = "Tatl ISG"
+description = "Allows you to activate ISG from talking to Tatl while Z-Targetting an enemy, similar to in OoT"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "faster_swim"
+name = "Faster Swim"
+description = "Swim slightly faster by spamming B, similar to the behavior in OoT"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "constant_distance_flips_and_hops"
+name = "Constant Distance Backflips & Sidehops"
+description = "Prevent air control when backflipping and sidehopping, ensuring their distances are always constant similar to OoT."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "side_roll"
+name = "Side Rolling"
+description = "Enable side rolling, similar to OoT. Roll after a sidehop to side roll."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
