@@ -2,33 +2,18 @@
 #define __RECOMPUI_H__
 
 #include "modding.h"
+#include "recompui_event_structs.h"
 
 typedef unsigned long RecompuiContext;
 typedef unsigned long RecompuiResource;
+
+// Height of the window in DP units. This is fixed regardless of window size and aspect ratio.
+#define RECOMPUI_TOTAL_HEIGHT 1080.0f
 
 typedef enum {
     CURSOR_NONE,
     CURSOR_POINTER
 } RecompuiCursor;
-
-typedef enum {
-    EVENT_TYPE_NONE,
-    EVENT_TYPE_CLICK,
-    EVENT_TYPE_FOCUS,
-    EVENT_TYPE_HOVER,
-    EVENT_TYPE_ENABLE,
-    EVENT_TYPE_DRAG,
-    EVENT_TYPE_TEXT,
-    EVENT_TYPE_UPDATE,
-    EVENT_TYPE_COUNT
-} RecompuiEventType;
-
-typedef enum {
-    DRAG_PHASE_NONE,
-    DRAG_PHASE_START,
-    DRAG_PHASE_MOVE,
-    DRAG_PHASE_END
-} RecompuiDragPhase;
 
 typedef enum {
     DISPLAY_NONE,
@@ -182,6 +167,11 @@ RECOMP_IMPORT("*", void recompui_set_margin_left(RecompuiResource id, float marg
 RECOMP_IMPORT("*", void recompui_set_margin_top(RecompuiResource id, float margin, RecompuiUnit unit));
 RECOMP_IMPORT("*", void recompui_set_margin_right(RecompuiResource id, float margin, RecompuiUnit unit));
 RECOMP_IMPORT("*", void recompui_set_margin_bottom(RecompuiResource id, float margin, RecompuiUnit unit));
+RECOMP_IMPORT("*", void recompui_set_margin_auto(RecompuiResource id));
+RECOMP_IMPORT("*", void recompui_set_margin_left_auto(RecompuiResource id));
+RECOMP_IMPORT("*", void recompui_set_margin_top_auto(RecompuiResource id));
+RECOMP_IMPORT("*", void recompui_set_margin_right_auto(RecompuiResource id));
+RECOMP_IMPORT("*", void recompui_set_margin_bottom_auto(RecompuiResource id));
 
 // Borders
 RECOMP_IMPORT("*", void recompui_set_border_width(RecompuiResource id, float width, RecompuiUnit unit));
@@ -239,5 +229,9 @@ RECOMP_IMPORT("*", void recompui_set_column_gap(RecompuiResource id, float size,
 // Drag and Focus
 RECOMP_IMPORT("*", void recompui_set_drag(RecompuiResource id, RecompuiDrag drag));
 RECOMP_IMPORT("*", void recompui_set_tab_index(RecompuiResource id, RecompuiTabIndex focus));
+
+// Callbacks
+typedef void RecompuiEventHandler(RecompuiResource resource, const RecompuiEventData* event, void* userdata);
+RECOMP_IMPORT("*", void recompui_register_callback(RecompuiResource id, RecompuiEventHandler* handler, void* userdata));
 
 #endif

@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        mod_name: [DevTools, ObjDepLoader, CustomItem, Restorations]
+        mod_name: [DevTools, ObjDepLoader, CustomItem, Restorations, ActorListIndex]
     name: Build ${{ matrix.mod_name }}
     steps:
       - name: Install Deps

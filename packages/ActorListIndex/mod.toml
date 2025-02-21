@@ -1,0 +1,20 @@
+[manifest]
+id = "ProxyMM_ActorListIndex"
+version = "0.0.2"
+display_name = "ActorListIndex"
+description =  """
+Exposes the index an Actor was placed at for the scene's ActorList command
+"""
+short_description = "Exposes the index an Actor was placed at for the scene's ActorList command"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/ActorListIndex/mod.elf"
+mod_filename = "ProxyMM_ActorListIndex"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]
