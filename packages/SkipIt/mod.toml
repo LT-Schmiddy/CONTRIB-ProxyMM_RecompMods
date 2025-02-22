@@ -1,0 +1,52 @@
+[manifest]
+id = "ProxyMM_SkipIt"
+version = "0.0.1"
+display_name = "SkipIt"
+description =  """
+Various cutscene skip options<br/>
+<div style="color: rgba(255,255,255,0.5);">
+<br/>
+<h3>Features:</h3><br/>
+- <span style="color: white;">Skip One Point Cutscenes</span><br/>
+- <span style="color: white;">Skip Entrance Cutscenes</span><br/>
+- <span style="color: white;">Skip Boss Introductions</span><br/>
+- <span style="color: white;">More planned</span><br/>
+</div>
+"""
+short_description = "Various cutscene skip options"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/SkipIt/mod.elf"
+mod_filename = "ProxyMM_SkipIt"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "skip_one_point_cutscenes"
+name = "Skip One Point Cutscenes"
+description = "Prevents you from being locked into place focusing on things like chests spawning or switches being flipped."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_entrance_cutscenes"
+name = "Skip Entrance Cutscenes"
+description = "Skips any entrance related cutscenes when entering an area for the first time."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_boss_introductions"
+name = "Skip Boss Introductions"
+description = "Skips boss introduction cutscenes, which play the first time you encounter a boss."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
