@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_ActorListIndex"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "ActorListIndex"
 description =  """
 Exposes the index an Actor was placed at for the scene's ActorList command

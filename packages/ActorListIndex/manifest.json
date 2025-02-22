@@ -1,6 +1,6 @@
 {
     "name": "ActorListIndex",
-    "version_number": "0.0.2",
+    "version_number": "0.0.3",
     "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
     "description": "Exposes the index an Actor was placed at for the scene's ActorList command",
     "dependencies": []
