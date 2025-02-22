@@ -1,9 +1,8 @@
 [manifest]
 id = "ProxyMM_Restorations"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "Restorations"
 description =  """
-# Restorations
 Various toggle-able restorations, from OoT or other versions of MM<br/>
 <div style="color: rgba(255,255,255,0.5);">
 <br/>
