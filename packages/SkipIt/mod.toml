@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_SkipIt"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "SkipIt"
 description =  """
 Various cutscene skip options<br/>
@@ -12,6 +12,7 @@ Various cutscene skip options<br/>
 - <span style="color: white;">Skip Boss Introductions</span><br/>
 - <span style="color: white;">Skip Intro or First Cycle</span><br/>
 - <span style="color: white;">Skip Song Playback</span><br/>
+- <span style="color: white;">Skip To File Select</span><br/>
 - <span style="color: white;">More planned</span><br/>
 </div>
 """
@@ -26,7 +27,7 @@ native_libraries = []
 elf_path = "../../build/packages/SkipIt/mod.elf"
 mod_filename = "ProxyMM_SkipIt"
 func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
-data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml", "../../custom_syms.toml" ]
 additional_files = [ "thumb.png" ]
 
 [[manifest.config_options]]
@@ -65,6 +66,14 @@ default = "Off"
 id = "skip_song_playback"
 name = "Skip Song Playback"
 description = "Skips replaying the song after you play it on an instrument"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_to_file_select"
+name = "Skip To File Select"
+description = "Skips to File select screen when booting"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"

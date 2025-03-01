@@ -2,7 +2,6 @@
 #include "global.h"
 #include "overlays/actors/ovl_En_Torch2/z_en_torch2.h"
 
-RECOMP_IMPORT("*", int recomp_printf(const char* fmt, ...));
 RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
 extern u8 sPlaybackState;
 

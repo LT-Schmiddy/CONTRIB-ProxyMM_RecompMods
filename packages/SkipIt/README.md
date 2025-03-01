@@ -7,6 +7,7 @@ Various cutscene skip options
 - Skip Boss Introductions
 - Skip Intro or First Cycle
 - Skip Song Playback
+- Skip To File Select
 - More planned
 
 ## API
