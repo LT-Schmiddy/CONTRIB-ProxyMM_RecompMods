@@ -1,0 +1,56 @@
+[manifest]
+id = "ProxyMM_PauseBuffering"
+version = "0.0.1"
+display_name = "PauseBuffering"
+description =  """
+Pause buffering related options, to make it more accessible on Recomp<br/>
+<div style="color: rgba(255,255,255,0.5);">
+<br/>
+<h3>Features:</h3><br/>
+- <span style="color: white;">Easy Frame Advance</span> - Continue holding START button when unpausing to only advance a single frame and then re-pause<br/>
+- <span style="color: white;">Include Held Inputs</span> - Inputs held while unpausing will be treated as pressed during the input buffer window.<br/>
+- <span style="color: white;">Pause Buffer Window</span> - Amount of time in frames you have to buffer an input while unpausing the game.<br/>
+<br/>
+</div>
+"""
+short_description = "Pause buffering related options"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/PauseBuffering/mod.elf"
+mod_filename = "ProxyMM_PauseBuffering"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "easy_frame_advance"
+name = "Easy Frame Advance"
+description = "Continue holding START button when unpausing to only advance a single frame and then re-pause"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "include_held_inputs_buffer_window"
+name = "Include Held Inputs"
+description = "Typically, inputs that are held prior to the buffer window are not included in the buffer. This setting changes that behavior to include them. This may cause some inputs to be re-triggered undesireably, for instance Z-Targetting something you might not want to."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "pause_buffer_window"
+name = "Pause Buffer Window"
+description = "Amount of time in frames you have to buffer an input while unpausing the game. Original hardware is around 20"
+type = "Number"
+min = 0
+max = 40
+step = 1
+precision = 1
+percent = false
+default = 0

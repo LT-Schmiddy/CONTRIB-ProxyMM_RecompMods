@@ -5,8 +5,16 @@ ifeq ($(MOD),)
 $(error Please specify a mod name using the MOD variable)
 endif
 
-CC      := clang
-LD      := ld.lld
+# Allow the user to specify the compiler and linker on macOS
+# as Apple Clang does not support MIPS architecture
+ifeq ($(shell uname),Darwin)
+    CC      ?= clang
+    LD      ?= ld.lld
+else
+    CC      := clang
+    LD      := ld.lld
+endif
+
 TARGET  := $(BUILD_DIR)/$(MOD_DIR)/mod.elf
 
 LDSCRIPT := mod.ld
