@@ -5,6 +5,8 @@ Various cutscene skip options
 - Skip One Point Cutscenes (Chests Spawning, Switch Pressed, Etc)
 - Skip Entrance Cutscenes
 - Skip Boss Introductions
+- Skip Intro or First Cycle
+- Skip Song Playback
 - More planned
 
 ## API
