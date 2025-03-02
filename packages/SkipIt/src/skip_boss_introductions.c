@@ -1,7 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_HOOK("Boss01_Init")
 void SkipBossIntroductions_Boss01_Init(Actor* thisx, PlayState* play) {

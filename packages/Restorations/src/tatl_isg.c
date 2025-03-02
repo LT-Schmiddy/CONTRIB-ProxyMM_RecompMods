@@ -1,12 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-extern Input* sPlayerControlInput;
-extern s32 sSavedCurrentMask;
-void Player_StartTalking(PlayState* play, Actor* actor);
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_PATCH s32 Player_ActionHandler_Talk(Player* this, PlayState* play) {
     if (gSaveContext.save.saveInfo.playerData.health != 0) {

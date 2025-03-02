@@ -1,9 +1,6 @@
-#include "modding.h"
-#include "global.h"
+#include "recomp_api.h"
+#include "z64extern.h"
 #include "z64recomp_api.h"
-
-void Actor_KillAllOnHalfDayChange(PlayState* play, ActorContext* actorCtx);
-Actor* Actor_SpawnEntry(ActorContext* actorCtx, ActorEntry* actorEntry, PlayState* play);
 
 ActorExtensionId sActorListIndexExtensionId;
 s32 currentActorListIndex = 0;

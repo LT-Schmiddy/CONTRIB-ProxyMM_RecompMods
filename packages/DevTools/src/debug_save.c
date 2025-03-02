@@ -1,13 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-#include "macros.h"
-#include "recompui.h"
-#include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
-#include "overlays/gamestates/ovl_file_choose/z_file_select.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-extern u16 sPersistentCycleWeekEventRegs[ARRAY_COUNT(gSaveContext.save.saveInfo.weekEventReg)];
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_CALLBACK("*", recomp_after_init_save) 
 void OnInitSave(FileSelectState* fileSelect, SramContext* sramCtx) {

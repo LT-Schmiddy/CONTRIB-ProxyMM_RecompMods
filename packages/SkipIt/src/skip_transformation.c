@@ -1,14 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-extern AdjLightSettings D_80862B50;
-extern PlayerAnimationHeader* D_8085D160[PLAYER_FORM_MAX];
-extern ActorOverlay gActorOverlayTable[];
-void Player_Action_86(Player* this, PlayState* play);
-void Player_Anim_PlayOnceMorphAdjusted(PlayState* play, Player* this, PlayerAnimationHeader* anim);
-void Player_SetAction_PreserveItemAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
-void func_8082DE50(PlayState* play, Player* this);
+#include "recomp_api.h"
+#include "z64extern.h"
 
 void CustomTransform(Player* this, PlayState* play) {
     // This was mostly copied directly from func_8012301C within z_player_lib.c

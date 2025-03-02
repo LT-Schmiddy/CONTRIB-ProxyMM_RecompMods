@@ -1,9 +1,7 @@
-#include "modding.h"
-#include "global.h"
-#include "overlays/actors/ovl_En_Torch2/z_en_torch2.h"
+#include "recomp_api.h"
+#include "z64extern.h"
 
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-extern u8 sPlaybackState;
+#include "overlays/actors/ovl_En_Torch2/z_en_torch2.h"
 
 #define NOT_OCARINA_ACTION_BALAD_WIND_FISH                                       \
     (sPlayState->msgCtx.ocarinaAction < OCARINA_ACTION_PROMPT_WIND_FISH_HUMAN || \
@@ -52,8 +50,6 @@ void SkipSongPlayback_ShouldActorInit(PlayState* play, Actor* actor, bool* shoul
         player->av2.actionVar2 = 90;
     }
 }
-
-void EnTorch2_Update(Actor* thisx, PlayState* play);
 
 RECOMP_CALLBACK("*", recomp_on_play_main)
 void SkipSongPlayback_OnPlayMain(PlayState* play) {

@@ -1,6 +1,7 @@
 #include "proxymm_custom_item.h"
+#include "recomp_api.h"
+#include "z64extern.h"
 
-RECOMP_IMPORT("*", int recomp_printf(const char* fmt, ...));
 RECOMP_IMPORT("ProxyMM_ObjDepLoader", bool ObjDepLoader_Load(PlayState* play, u8 segment, s16 objectId));
 RECOMP_IMPORT("ProxyMM_ObjDepLoader", void ObjDepLoader_Unload(u8 segment, s16 objectId));
 
@@ -28,15 +29,6 @@ static ColliderCylinderInit sCylinderInit = {
 static InitChainEntry sInitChain[] = {
     ICHAIN_F32(lockOnArrowOffset, 2000, ICHAIN_STOP),
 };
-
-typedef struct GetItemEntry {
-    /* 0x0 */ u8 itemId;
-    /* 0x1 */ u8 field; // various bit-packed data
-    /* 0x2 */ s8 gid;   // defines the draw id and chest opening animation
-    /* 0x3 */ u8 textId;
-    /* 0x4 */ u16 objectId;
-} GetItemEntry; // size = 0x6
-extern GetItemEntry sGetItemTable[GI_MAX - 1];
 // #endregion
 
 static bool isGivingCustomItemOverhead = false;

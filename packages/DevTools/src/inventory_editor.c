@@ -1,14 +1,6 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
+#include "recomp_api.h"
 #include "recompui.h"
-#include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
-
-void Inventory_DeleteItem(s16 item, s16 slot);
-s32 Inventory_ReplaceItem(PlayState* play, u8 oldItem, u8 newItem);
-void KaleidoScope_MoveCursorFromSpecialPos(PlayState* play);
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "z64extern.h"
 
 RecompuiContext context;
 RecompuiResource root;

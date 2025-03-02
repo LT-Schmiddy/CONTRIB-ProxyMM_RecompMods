@@ -1,28 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-typedef enum {
-    /* 0 */ CS_START_0,
-    /* 1 */ CS_START_1,
-    /* 2 */ CS_START_2
-} ActorCutsceneStartMethod;
-typedef struct {
-    /* 0x00 */ s16 csId;
-    /* 0x02 */ s16 length;
-    /* 0x04 */ s16 endCsId;
-    /* 0x06 */ s16 subCamId;
-    /* 0x08 */ Actor* targetActor;
-    /* 0x0C */ s32 startMethod;
-    /* 0x10 */ PlayState* play;
-    /* 0x14 */ s16 retCamId;
-    /* 0x16 */ s16 isCameraStored;
-} CutsceneManager; // size = 0x18
-
-void ShrinkWindow_Letterbox_SetSizeTarget(s32 target);
-CutsceneEntry* CutsceneManager_GetCutsceneEntryImpl(s16 csId);
-s16 CutsceneManager_SetHudVisibility(s16 csHudVisibility);
-extern CutsceneManager sCutsceneMgr;
-extern u8 sWaitingCutsceneList[16];
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_DECLARE_EVENT(SkipIt_ShouldCutsceneStart(s16 csId, Actor* actor, bool* should));
 RECOMP_DECLARE_EVENT(SkipIt_ShouldCutsceneQueue(s16 csId, bool* should));

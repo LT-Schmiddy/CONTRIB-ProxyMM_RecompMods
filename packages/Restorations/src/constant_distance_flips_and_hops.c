@@ -1,31 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-extern PlayerAnimationHeader gPlayerAnim_link_normal_newroll_jump_20f;
-extern PlayerAnimationHeader gPlayerAnim_pn_attack;
-extern PlayerAnimationHeader gPlayerAnim_link_normal_landing;
-extern PlayerAnimationHeader* D_8085BE84[PLAYER_ANIMGROUP_MAX][PLAYER_ANIMTYPE_MAX];
-bool Player_UpdateUpperBody(Player* this, PlayState* play);
-void func_80840980(Player* this, u16 sfxId);
-s32 func_8083D860(Player* this, PlayState* play);
-s32 func_8084C124(PlayState* play, Player* this);
-void Player_AnimSfx_PlayVoice(Player* this, u16 sfxId);
-void func_80837CEC(PlayState* play, Player* this, CollisionPoly* arg2, f32 arg3, PlayerAnimationHeader* anim);
-s32 Player_GetMovementSpeedAndYaw(Player* this, f32* outSpeedTarget, s16* outYawTarget, f32 speedMode, PlayState* play);
-bool func_808313A8(PlayState* play, Player* this, Actor* actor);
-void func_808409A8(PlayState* play, Player* this, f32 speed, f32 yVelocity);
-void func_808378FC(PlayState* play, Player* this);
-s32 func_8083CBC4(Player* this, f32 arg1, s16 arg2, f32 arg3, f32 arg4, f32 arg5, s16 arg6);
-s32 func_80839770(Player* this, PlayState* play);
-void func_80837134(PlayState* play, Player* this);
-s32 Player_ActionHandler_13(Player* this, PlayState* play);
-extern Input* sPlayerControlInput;
-extern f32 sPlayerYDistToFloor;
-#define SPEED_MODE_LINEAR 0.0f
-#define GET_PLAYER_ANIM(group, type) ((PlayerAnimationHeader**)D_8085BE84)[group * PLAYER_ANIMTYPE_MAX + type]
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_PATCH void Player_Action_25(Player* this, PlayState* play) {
     f32 speedTarget;

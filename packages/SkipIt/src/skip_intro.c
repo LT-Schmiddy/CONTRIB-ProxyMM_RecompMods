@@ -1,7 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_CALLBACK("*", recomp_on_play_init)
 void SkipIntro_OnPlayInit(PlayState* play) {

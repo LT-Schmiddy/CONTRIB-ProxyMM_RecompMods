@@ -1,14 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-extern PlayerAnimationHeader* D_8085BE84[PLAYER_ANIMGROUP_MAX][PLAYER_ANIMTYPE_MAX];
-void Player_Action_26(Player* this, PlayState* play);
-s32 Player_SetAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
-void func_80836AD8(PlayState* play, Player* this);
-extern f32 sWaterSpeedFactor;
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_PATCH void func_80836B3C(PlayState* play, Player* this, f32 arg2) {
     if (!recomp_get_config_u32("side_roll")) {

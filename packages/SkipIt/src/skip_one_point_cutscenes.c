@@ -1,8 +1,7 @@
-#include "modding.h"
-#include "global.h"
-#include "overlays/actors/ovl_Obj_Syokudai/z_obj_syokudai.h"
+#include "recomp_api.h"
+#include "z64extern.h"
 
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "overlays/actors/ovl_Obj_Syokudai/z_obj_syokudai.h"
 
 static PlayState* sPlayState;
 

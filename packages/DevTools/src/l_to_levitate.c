@@ -1,8 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_CALLBACK("*", recomp_on_play_update)
 void OnPlayUpdate(PlayState* play) {

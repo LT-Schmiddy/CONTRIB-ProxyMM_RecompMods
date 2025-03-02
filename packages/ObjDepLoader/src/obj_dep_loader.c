@@ -1,10 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-RECOMP_IMPORT("*", void* recomp_alloc(size_t size));
-RECOMP_IMPORT("*", void recomp_free(void* ptr));
-
-extern uintptr_t gSegments[NUM_SEGMENTS];
+#include "recomp_api.h"
+#include "z64extern.h"
 
 static bool objectLoaded[OBJECT_ID_MAX];
 static void* objectSegments[OBJECT_ID_MAX];

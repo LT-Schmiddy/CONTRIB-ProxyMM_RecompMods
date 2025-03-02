@@ -1,16 +1,6 @@
-#include "modding.h"
-#include "global.h"
-#include "overlays/gamestates/ovl_select/z_select.h"
-#include "overlays/gamestates/ovl_file_choose/z_file_select.h"
+#include "recomp_api.h"
+#include "z64extern.h"
 
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-// Non-relocatable reference to the original address of MapSelect_Init_NORELOCATE.
-void MapSelect_Init_NORELOCATE(GameState*);
-void FileSelect_Init_NORELOCATE(GameState*);
-void MapSelect_Draw(MapSelectState* this);
-void MapSelect_LoadGame(MapSelectState* this, u32 entrance, s32 spawn);
-void MapSelect_LoadConsoleLogo(MapSelectState* this, u32 entrance, s32 spawn);
 static GameState* sGameState;
 
 void BetterMapSelect_LoadGame(MapSelectState* mapSelectState, u32 entrance, s32 spawn) {

@@ -1,10 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "overlays/gamestates/ovl_title/z_title.h"
-#include "overlays/gamestates/ovl_file_choose/z_file_select.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-void FileSelect_Init_NORELOCATE(GameState*);
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_HOOK("ConsoleLogo_Main")
 void SkipToFileSelect_ConsoleLogo_Main(GameState* thisx) {

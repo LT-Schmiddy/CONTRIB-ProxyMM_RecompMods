@@ -1,13 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-void func_8083375C(Player* this, PlayerMeleeWeaponAnimation meleeWeaponAnim);
-void Player_Anim_PlayOnce(PlayState* play, Player* this, PlayerAnimationHeader* anim);
-extern s32 sPlayerUseHeldItem;
-extern PlayerAnimationHeader gPlayerAnim_link_normal_defense_kiru;
+#include "recomp_api.h"
+#include "z64extern.h"
 
 static PlayState* sPlayState;
 

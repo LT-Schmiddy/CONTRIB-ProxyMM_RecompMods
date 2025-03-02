@@ -1,7 +1,5 @@
-#include "modding.h"
-#include "global.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
+#include "recomp_api.h"
+#include "z64extern.h"
 
 static int easyFrameAdvanceTimer = 0;
 static int inputBufferTimer = 0;
@@ -80,5 +78,3 @@ void OnPlayMain(PlayState* play) {
         }
     }
 }
-
-

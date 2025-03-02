@@ -1,10 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-
-void Player_Action_57(Player* this, PlayState* play);
+#include "recomp_api.h"
+#include "z64extern.h"
 
 RECOMP_PATCH void func_808477D0(PlayState* play, Player* this, Input* input, f32 arg3) {
     f32 var_fv0;

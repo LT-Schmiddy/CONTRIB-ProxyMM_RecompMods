@@ -1,10 +1,5 @@
-#include "modding.h"
-#include "global.h"
-#include "functions.h"
-
-RECOMP_IMPORT("*", int recomp_printf(const char* fmt, ...));
-RECOMP_IMPORT("*", u32 recomp_get_config_u32(const char* key));
-void Player_StopHorizontalMovement(Player* this);
+#include "recomp_api.h"
+#include "z64extern.h"
 
 static Input* sControlInput;
 static u32 sNoclipEnabled = false;
