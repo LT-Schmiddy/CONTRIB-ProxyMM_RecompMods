@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_SkipIt"
-version = "0.0.3"
+version = "0.0.4"
 display_name = "SkipIt"
 description =  """
 Various cutscene skip options<br/>
@@ -13,6 +13,7 @@ Various cutscene skip options<br/>
 - <span style="color: white;">Skip Intro or First Cycle</span><br/>
 - <span style="color: white;">Skip Song Playback</span><br/>
 - <span style="color: white;">Skip To File Select</span><br/>
+- <span style="color: white;">Skip Mask Transformation</span><br/>
 - <span style="color: white;">More planned</span><br/>
 </div>
 """
@@ -74,6 +75,14 @@ default = "Off"
 id = "skip_to_file_select"
 name = "Skip To File Select"
 description = "Skips to File select screen when booting"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_transformation"
+name = "Skip Mask Transformation"
+description = "Skip Mask Transformation animation"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"

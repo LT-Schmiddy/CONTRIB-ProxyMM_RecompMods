@@ -8,6 +8,7 @@ Various cutscene skip options
 - Skip Intro or First Cycle
 - Skip Song Playback
 - Skip To File Select
+- Skip Mask Transformation
 - More planned
 
 ## API
