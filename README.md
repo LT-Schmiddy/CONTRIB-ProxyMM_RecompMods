@@ -2,6 +2,7 @@
 This is a collection of mods made for [Zelda64Recomp](https://github.com/Zelda64Recomp/Zelda64Recomp)'s Majora's Mask
 
 - [ActorListIndex](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/ActorListIndex/) - Exposes the index an Actor was placed at for the scene's ActorList command.
+- [Cheats](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/Cheats/) - Various toggle-able cheats.
 - [CustomItem](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/CustomItem/) - A library for spawning and giving custom items.
 - [DevTools](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/DevTools/) - A collection of developer tools
 - [ObjDepLoader](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/ObjDepLoader/) - A simple workaround for object dependency 

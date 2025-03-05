@@ -6,6 +6,7 @@
 #include "overlays/gamestates/ovl_title/z_title.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
+#include "overlays/actors/ovl_Arms_Hook/z_arms_hook.h"
 
 // This file just houses any externs I need throughout my mods that aren't available in headers already
 
@@ -41,9 +42,11 @@ typedef struct GetItemEntry {
 extern ActorOverlay gActorOverlayTable[];
 extern AdjLightSettings D_80862B50;
 extern CutsceneManager sCutsceneMgr;
+extern f32 D_8085D958[2];
 extern f32 sPlayerYDistToFloor;
 extern f32 sWaterSpeedFactor;
 extern GetItemEntry sGetItemTable[GI_MAX - 1];
+extern Gfx gHookshotReticleDL[];
 extern Input* sPlayerControlInput;
 extern PlayerAnimationHeader gPlayerAnim_link_normal_defense_kiru;
 extern PlayerAnimationHeader gPlayerAnim_link_normal_landing;
@@ -75,7 +78,10 @@ s32 Inventory_ReplaceItem(PlayState* play, u8 oldItem, u8 newItem);
 s32 Player_ActionHandler_13(Player* this, PlayState* play);
 s32 Player_GetMovementSpeedAndYaw(Player* this, f32* outSpeedTarget, s16* outYawTarget, f32 speedMode, PlayState* play);
 s32 Player_SetAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
+u32 SurfaceType_GetData(CollisionContext* colCtx, CollisionPoly* poly, s32 bgId, s32 dataIdx);
 void Actor_KillAllOnHalfDayChange(PlayState* play, ActorContext* actorCtx);
+void ArmsHook_SetupAction(ArmsHook* this, ArmsHookActionFunc actionFunc);
+void ArmsHook_Shoot(ArmsHook* this, PlayState* play);
 void EnTorch2_Update(Actor* thisx, PlayState* play);
 void FileSelect_Init_NORELOCATE(GameState*);
 void func_8082DE50(PlayState* play, Player* this);
@@ -99,6 +105,7 @@ void Player_Action_86(Player* this, PlayState* play);
 void Player_Anim_PlayOnce(PlayState* play, Player* this, PlayerAnimationHeader* anim);
 void Player_Anim_PlayOnceMorphAdjusted(PlayState* play, Player* this, PlayerAnimationHeader* anim);
 void Player_AnimSfx_PlayVoice(Player* this, u16 sfxId);
+void Player_DrawHookshotReticle(PlayState* play, Player* player, f32 hookshotDistance);
 void Player_SetAction_PreserveItemAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
 void Player_StartTalking(PlayState* play, Actor* actor);
 void Player_StopHorizontalMovement(Player* this);

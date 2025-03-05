@@ -1,0 +1,118 @@
+[manifest]
+id = "ProxyMM_Cheats"
+version = "0.0.1"
+display_name = "Cheats"
+description =  """
+<div style="color: rgba(255,255,255,0.5);">
+<br/>
+<h3>Features:</h3><br/>
+- <span style="color: white;">Infinite Magic, Health, Consumables, Rupees</span><br/>
+- <span style="color: white;">Unrestricted Items</span><br/>
+- <span style="color: white;">Blast Mask Cooldown</span><br/>
+- <span style="color: white;">No Explosive Limit</span><br/>
+- <span style="color: white;">Hookshot Everything</span><br/>
+- <span style="color: white;">Hookshot Length Multiplier</span><br/>
+- <span style="color: white;">Longer Deku Flower Glide</span><br/>
+</div>
+"""
+short_description = "Various toggle-able Cheats"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/Cheats/mod.elf"
+mod_filename = "ProxyMM_Cheats"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "infinite_magic"
+name = "Infinite Magic"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_health"
+name = "Infinite Health"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_rupees"
+name = "Infinite Rupees"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_consumables"
+name = "Infinite Consumables"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "blast_mask_cooldown"
+name = "Blast Mask Cooldown (Seconds)"
+description = ""
+type = "Number"
+min = 0
+max = 15
+step = 1
+precision = 1
+percent = false
+default = 15
+
+[[manifest.config_options]]
+id = "no_explosive_limit"
+name = "No Explosive Limit"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "unrestricted_items"
+name = "Unrestricted Items"
+description = "Be Warned: You can easily soft lock yourself using this functionality if you aren't careful"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "hookshot_everything"
+name = "Hookshot Everything"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "hookshot_length_multiplier"
+name = "Hookshot Length Multiplier"
+description = ""
+type = "Number"
+min = 1
+max = 5
+step = 1
+precision = 1
+percent = false
+default = 1
+
+[[manifest.config_options]]
+id = "longer_deku_flower_glide"
+name = "Longer Deku Flower Glide"
+description = ""
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
