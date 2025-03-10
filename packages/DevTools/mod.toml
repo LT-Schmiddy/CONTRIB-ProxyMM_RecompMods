@@ -21,7 +21,12 @@ authors = [ "ProxySaw" ]
 game_id = "mm"
 minimum_recomp_version = "1.2.0"
 dependencies = []
-native_libraries = []
+native_libraries = [
+    { name = "ProxyRecomp_KV", funcs = [
+        "KV_Set",
+        "KV_Get",
+        "KV_Remove"] }
+]
 
 [inputs]
 elf_path = "../../build/packages/DevTools/mod.elf"
