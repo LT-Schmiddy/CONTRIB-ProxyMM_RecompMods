@@ -7,6 +7,7 @@
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
 #include "overlays/actors/ovl_Arms_Hook/z_arms_hook.h"
+#include "overlays/actors/ovl_En_Bal/z_en_bal.h"
 
 // This file just houses any externs I need throughout my mods that aren't available in headers already
 
@@ -82,6 +83,7 @@ u32 SurfaceType_GetData(CollisionContext* colCtx, CollisionPoly* poly, s32 bgId,
 void Actor_KillAllOnHalfDayChange(PlayState* play, ActorContext* actorCtx);
 void ArmsHook_SetupAction(ArmsHook* this, ArmsHookActionFunc actionFunc);
 void ArmsHook_Shoot(ArmsHook* this, PlayState* play);
+void EnBal_SetupFall(EnBal* this);
 void EnTorch2_Update(Actor* thisx, PlayState* play);
 void FileSelect_Init_NORELOCATE(GameState*);
 void func_8082DE50(PlayState* play, Player* this);

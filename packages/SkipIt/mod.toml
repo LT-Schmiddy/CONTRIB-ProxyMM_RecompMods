@@ -1,21 +1,19 @@
 [manifest]
 id = "ProxyMM_SkipIt"
-version = "0.0.4"
+version = "0.0.5"
 display_name = "SkipIt"
 description =  """
-Various cutscene skip options<br/>
-<div style="color: rgba(255,255,255,0.5);">
-<br/>
-<h3>Features:</h3><br/>
-- <span style="color: white;">Skip One Point Cutscenes</span><br/>
-- <span style="color: white;">Skip Entrance Cutscenes</span><br/>
-- <span style="color: white;">Skip Boss Introductions</span><br/>
-- <span style="color: white;">Skip Intro or First Cycle</span><br/>
-- <span style="color: white;">Skip Song Playback</span><br/>
-- <span style="color: white;">Skip To File Select</span><br/>
-- <span style="color: white;">Skip Mask Transformation</span><br/>
-- <span style="color: white;">More planned</span><br/>
-</div>
+Various cutscene skip options
+
+Features:
+- Skip One Point Cutscenes
+- Skip Entrance Cutscenes
+- Skip Boss Introductions
+- Skip Intro or First Cycle
+- Skip Song Playback
+- Skip To File Select
+- Skip Mask Transformation
+- More planned
 """
 short_description = "Various cutscene skip options"
 authors = [ "ProxySaw" ]
