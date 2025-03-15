@@ -1,0 +1,20 @@
+[manifest]
+id = "ProxyMM_CustomActor"
+version = "0.0.1"
+display_name = "CustomActor"
+description =  """
+A library for defining custom actors, see README for usage instructions.
+"""
+short_description = "A library for defining custom actors"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/CustomActor/mod.elf"
+mod_filename = "ProxyMM_CustomActor"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml" ]
+additional_files = [ "thumb.png" ]

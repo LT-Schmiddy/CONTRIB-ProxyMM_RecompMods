@@ -1,0 +1,7 @@
+{
+    "name": "CustomActor",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
+    "description": "A library for defining custom actors",
+    "dependencies": []
+}

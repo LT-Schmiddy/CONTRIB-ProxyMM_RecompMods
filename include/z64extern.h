@@ -2,6 +2,7 @@
 #define PROXYMM_Z64_EXTERN_H
 
 #include "global.h"
+#include "zelda_arena.h"
 #include "overlays/gamestates/ovl_select/z_select.h"
 #include "overlays/gamestates/ovl_title/z_title.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
@@ -67,6 +68,7 @@ extern u8 sWaitingCutsceneList[16];
 extern uintptr_t gSegments[NUM_SEGMENTS];
 
 Actor* Actor_SpawnEntry(ActorContext* actorCtx, ActorEntry* actorEntry, PlayState* play);
+ActorProfile* Actor_LoadOverlay(ActorContext* actorCtx, s16 index);
 bool func_808313A8(PlayState* play, Player* this, Actor* actor);
 bool Player_UpdateUpperBody(Player* this, PlayState* play);
 CutsceneEntry* CutsceneManager_GetCutsceneEntryImpl(s16 csId);
@@ -80,6 +82,9 @@ s32 Player_ActionHandler_13(Player* this, PlayState* play);
 s32 Player_GetMovementSpeedAndYaw(Player* this, f32* outSpeedTarget, s16* outYawTarget, f32 speedMode, PlayState* play);
 s32 Player_SetAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
 u32 SurfaceType_GetData(CollisionContext* colCtx, CollisionPoly* poly, s32 bgId, s32 dataIdx);
+void Actor_AddToCategory(ActorContext* actorCtx, Actor* actor, u8 actorCategory);
+void Actor_FreeOverlay(ActorOverlay* entry);
+void Actor_Init(Actor* actor, PlayState* play);
 void Actor_KillAllOnHalfDayChange(PlayState* play, ActorContext* actorCtx);
 void ArmsHook_SetupAction(ArmsHook* this, ArmsHookActionFunc actionFunc);
 void ArmsHook_Shoot(ArmsHook* this, PlayState* play);
