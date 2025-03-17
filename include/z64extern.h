@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "zelda_arena.h"
+#include "gfxalloc.h"
 #include "overlays/gamestates/ovl_select/z_select.h"
 #include "overlays/gamestates/ovl_title/z_title.h"
 #include "overlays/gamestates/ovl_file_choose/z_file_select.h"
@@ -41,6 +42,13 @@ typedef struct GetItemEntry {
     /* 0x4 */ u16 objectId;
 } GetItemEntry; // size = 0x6
 
+typedef struct {
+    /* 0x0 */ s8 letterboxTarget;
+    /* 0x1 */ s8 letterboxSize;
+    /* 0x2 */ s8 pillarboxTarget;
+    /* 0x3 */ s8 pillarboxSize;
+} ShrinkWindow; // size = 0x4
+
 extern ActorOverlay gActorOverlayTable[];
 extern AdjLightSettings D_80862B50;
 extern CutsceneManager sCutsceneMgr;
@@ -66,7 +74,14 @@ extern u8 D_801C6A70;
 extern u8 sPlaybackState;
 extern u8 sWaitingCutsceneList[16];
 extern uintptr_t gSegments[NUM_SEGMENTS];
+extern PlayerAgeProperties sPlayerAgeProperties[PLAYER_FORM_MAX];
+extern FlexSkeletonHeader* gKafeiSkel;
+extern struct VisFbuf* sPlayVisFbufInstance;
+extern ShrinkWindow* sShrinkWindowPtr;
 
+PlayerAnimationHeader* Player_GetIdleAnim(Player* this);
+void Player_Anim_PlayOnceMorph(PlayState* play, Player* this, PlayerAnimationHeader* anim);
+PlayerAnimationHeader* func_8082ED20(Player* this);
 Actor* Actor_SpawnEntry(ActorContext* actorCtx, ActorEntry* actorEntry, PlayState* play);
 ActorProfile* Actor_LoadOverlay(ActorContext* actorCtx, s16 index);
 bool func_808313A8(PlayState* play, Player* this, Actor* actor);
@@ -112,6 +127,7 @@ void Player_Action_86(Player* this, PlayState* play);
 void Player_Anim_PlayOnce(PlayState* play, Player* this, PlayerAnimationHeader* anim);
 void Player_Anim_PlayOnceMorphAdjusted(PlayState* play, Player* this, PlayerAnimationHeader* anim);
 void Player_AnimSfx_PlayVoice(Player* this, u16 sfxId);
+void Player_DrawGameplay(PlayState* play, Player* this, s32 lod, Gfx* cullDList, OverrideLimbDrawFlex overrideLimbDraw);
 void Player_DrawHookshotReticle(PlayState* play, Player* player, f32 hookshotDistance);
 void Player_SetAction_PreserveItemAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 arg3);
 void Player_StartTalking(PlayState* play, Actor* actor);

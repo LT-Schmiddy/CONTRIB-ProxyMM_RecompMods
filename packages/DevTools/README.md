@@ -9,6 +9,8 @@ All features are off by default, and need to be enabled in the Configuration men
 - Map Select - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes
 - Debug Save - New files created with 100% of the inventory filled
 - No Clip - Ported from OoT Debug mode, Hold L and press D-pad right to activate
+- Disable HUD
+- Custom Screen Scale & Letterboxing
 
 ## Planned:
 - Warp Point - Ability to set a warp point anywhere in the game and return there at the press of a button.

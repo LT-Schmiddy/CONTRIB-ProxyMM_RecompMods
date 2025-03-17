@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_DevTools"
-version = "0.0.4"
+version = "0.0.5"
 display_name = "DevTools"
 description =  """
 A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.
@@ -13,6 +13,8 @@ Features:
 - Map Select - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes
 - Debug Save - New files created with 100% of the inventory filled
 - No Clip - Ported from OoT Debug mode, Hold L and press D-pad right to activate
+- Disable HUD
+- Custom Screen Scale & Letterboxing
 """
 short_description = "A collection of developer tools"
 authors = [ "ProxySaw" ]
@@ -72,3 +74,35 @@ description = "Ported from OoT Debug mode, Hold L and press D-pad right to activ
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"
+
+[[manifest.config_options]]
+id = "disable_hud"
+name = "Disable Hud"
+description = "Hides the HUD and Message interfaces. You may need to disable to continue messages."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "screen_scale"
+name = "Screen Scale"
+description = "100% is no change"
+type = "Number"
+min = 0
+max = 100
+step = 1
+precision = 1
+percent = true
+default = 100
+
+[[manifest.config_options]]
+id = "letterbox_size"
+name = "Letterbox Size"
+description = "-1 is no override (vanilla), 0 will prevent all letterboxing"
+type = "Number"
+min = -1
+max = 120
+step = 1
+precision = 1
+percent = false
+default = -1
