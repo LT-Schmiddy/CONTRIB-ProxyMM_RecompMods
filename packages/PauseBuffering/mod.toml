@@ -1,17 +1,14 @@
 [manifest]
 id = "ProxyMM_PauseBuffering"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "PauseBuffering"
 description =  """
-Pause buffering related options, to make it more accessible on Recomp<br/>
-<div style="color: rgba(255,255,255,0.5);">
-<br/>
-<h3>Features:</h3><br/>
-- <span style="color: white;">Easy Frame Advance</span> - Continue holding START button when unpausing to only advance a single frame and then re-pause<br/>
-- <span style="color: white;">Include Held Inputs</span> - Inputs held while unpausing will be treated as pressed during the input buffer window.<br/>
-- <span style="color: white;">Pause Buffer Window</span> - Amount of time in frames you have to buffer an input while unpausing the game.<br/>
-<br/>
-</div>
+Pause buffering related options, to make it more accessible on Recomp
+
+Features:
+- Easy Frame Advance - Continue holding START button when unpausing to only advance a single frame and then re-pause
+- Include Held Inputs - Inputs held while unpausing will be treated as pressed during the input buffer window.
+- Pause Buffer Window - Amount of time in frames you have to buffer an input while unpausing the game.
 """
 short_description = "Pause buffering related options"
 authors = [ "ProxySaw" ]

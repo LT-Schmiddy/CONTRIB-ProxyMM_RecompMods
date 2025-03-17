@@ -1,20 +1,17 @@
 [manifest]
 id = "ProxyMM_Restorations"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "Restorations"
 description =  """
-Various toggle-able restorations, from OoT or other versions of MM<br/>
-<div style="color: rgba(255,255,255,0.5);">
-<br/>
-<h3>Features:</h3><br/>
-- <span style="color: white;">Faster Swim (Spam B)</span> - From OoT<br/>
-- <span style="color: white;">Tatl ISG</span> - From OoT<br/>
-- <span style="color: white;">Constant Backflip/Sidehop Distance</span> - From OoT<br/>
-- <span style="color: white;">Side Rolling</span> - From OoT<br/>
-- <span style="color: white;">Power Crouch Stab</span> - From JP & OoT<br/>
-<br/>
+Various toggle-able restorations, from OoT or other versions of MM
+Features:
+- Faster Swim (Spam B) - From OoT
+- Tatl ISG - From OoT
+- Constant Backflip/Sidehop Distance - From OoT
+- Side Rolling - From OoT
+- Power Crouch Stab - From JP & OoT
+
 Credit to @inspectredc & @itsheckinpat for the original implementation for some of these on 2Ship
-</div>
 """
 short_description = "Various toggle-able restorations"
 authors = [ "ProxySaw" ]

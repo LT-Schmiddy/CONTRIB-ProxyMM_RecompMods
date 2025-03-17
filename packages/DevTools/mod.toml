@@ -1,20 +1,18 @@
 [manifest]
 id = "ProxyMM_DevTools"
-version = "0.0.3"
+version = "0.0.4"
 display_name = "DevTools"
 description =  """
-A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.<br/>
-<br/>
-<div style="color: rgba(255,255,255,0.5);">
-All features are off by default, and need to be enabled in the Configuration menu.<br/>
-<br/>
-<h3>Features:</h3><br/>
-- <span style="color: white;">Hold L to levitate</span><br/>
-- <span style="color: white;">Inventory Editor</span> - Press L on the pause menu to enable editing of the inventory, then press A to grant/remove an item<br/>
-- <span style="color: white;">Map Select</span> - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes<br/>
-- <span style="color: white;">Debug Save</span> - New files created with 100% of the inventory filled<br/>
-- <span style="color: white;">No Clip</span> - Ported from OoT Debug mode, Hold L and press D-pad right to activate<br/>
-</div>
+A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.
+
+All features are off by default, and need to be enabled in the Configuration menu.
+
+Features:
+- Hold L to levitate
+- Inventory Editor - Press L on the pause menu to enable editing of the inventory, then press A to grant/remove an item
+- Map Select - L + R + Z Brings you to a map select screen, allowing you to warp to various scenes/entrances/cutscenes
+- Debug Save - New files created with 100% of the inventory filled
+- No Clip - Ported from OoT Debug mode, Hold L and press D-pad right to activate
 """
 short_description = "A collection of developer tools"
 authors = [ "ProxySaw" ]

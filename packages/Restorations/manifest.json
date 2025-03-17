@@ -1,6 +1,6 @@
 {
     "name": "Restorations",
-    "version_number": "0.0.2",
+    "version_number": "0.0.3",
     "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
     "description": "Various toggle-able restorations",
     "dependencies": [

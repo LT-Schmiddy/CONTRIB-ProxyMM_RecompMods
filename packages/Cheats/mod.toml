@@ -1,19 +1,16 @@
 [manifest]
 id = "ProxyMM_Cheats"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "Cheats"
 description =  """
-<div style="color: rgba(255,255,255,0.5);">
-<br/>
-<h3>Features:</h3><br/>
-- <span style="color: white;">Infinite Magic, Health, Consumables, Rupees</span><br/>
-- <span style="color: white;">Unrestricted Items</span><br/>
-- <span style="color: white;">Blast Mask Cooldown</span><br/>
-- <span style="color: white;">No Explosive Limit</span><br/>
-- <span style="color: white;">Hookshot Everything</span><br/>
-- <span style="color: white;">Hookshot Length Multiplier</span><br/>
-- <span style="color: white;">Longer Deku Flower Glide</span><br/>
-</div>
+Features:
+- Infinite Magic, Health, Consumables, Rupees
+- Unrestricted Items
+- Blast Mask Cooldown
+- No Explosive Limit
+- Hookshot Everything
+- Hookshot Length Multiplier
+- Longer Deku Flower Glide
 """
 short_description = "Various toggle-able Cheats"
 authors = [ "ProxySaw" ]

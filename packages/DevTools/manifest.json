@@ -1,6 +1,6 @@
 {
     "name": "DevTools",
-    "version_number": "0.0.3",
+    "version_number": "0.0.4",
     "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
     "description": "A collection of developer tools",
     "dependencies": []
