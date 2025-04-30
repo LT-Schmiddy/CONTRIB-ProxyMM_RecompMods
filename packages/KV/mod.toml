@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_KV"
-version = "0.0.3"
+version = "0.0.4"
 display_name = "KV"
 description =  """
 A simple KV Store for N64Recomp projects
@@ -11,7 +11,7 @@ game_id = "mm"
 minimum_recomp_version = "1.2.0"
 dependencies = []
 native_libraries = [
-    { name = "ProxyRecomp_KV003", funcs = [
+    { name = "ProxyRecomp_KV004", funcs = [
         "KV_Get",
         "KV_Set",
         "KV_Has",

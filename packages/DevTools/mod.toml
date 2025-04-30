@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_DevTools"
-version = "0.0.7"
+version = "0.0.8"
 display_name = "DevTools"
 description =  """
 A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.
@@ -21,7 +21,7 @@ authors = [ "ProxySaw" ]
 game_id = "mm"
 minimum_recomp_version = "1.2.0"
 dependencies = [
-    "ProxyMM_KV:0.0.3"
+    "ProxyMM_KV:0.0.4"
 ]
 native_libraries = []
 

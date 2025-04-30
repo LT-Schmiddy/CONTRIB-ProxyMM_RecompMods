@@ -7,7 +7,7 @@ A simple KV Store for N64Recomp projects
 Add the dependency in your `mod.toml`
 ```diff
 dependencies = [
-    "ProxyMM_KV:0.0.3"
+    "ProxyMM_KV:0.0.4"
 ]
 ```
 
