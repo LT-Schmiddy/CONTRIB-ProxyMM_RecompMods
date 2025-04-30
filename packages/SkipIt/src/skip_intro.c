@@ -8,7 +8,7 @@ void SkipIntro_OnPlayInit(PlayState* play) {
     // If this is not intro cutscene return
     if (
         gSaveContext.save.entrance != ENTRANCE(CUTSCENE, 0) || 
-        gSaveContext.save.cutsceneIndex != 0xFFF0 ||
+        (gSaveContext.save.cutsceneIndex != 0xFFF0 && gSaveContext.save.cutsceneIndex != 0) ||
         gSaveContext.save.isFirstCycle
     ) return;
 

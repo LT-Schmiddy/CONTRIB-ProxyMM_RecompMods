@@ -1,14 +1,14 @@
 #include "recomp_api.h"
 #include "z64extern.h"
-#include "proxyrecomp_kv.h"
+#include "proxymm_kv.h"
 
 static GameState* sGameState;
 
 void BetterMapSelect_LoadGame(MapSelectState* mapSelectState, u32 entrance, s32 spawn) {
-    KV_Set("ProxyMM_DevTools.MapSelect.currentScene", &mapSelectState->currentScene, sizeof(s32));
-    KV_Set("ProxyMM_DevTools.MapSelect.opt", &mapSelectState->opt, sizeof(s32));
-    KV_Set("ProxyMM_DevTools.MapSelect.topDisplayedScene", &mapSelectState->topDisplayedScene, sizeof(s32));
-    KV_Set("ProxyMM_DevTools.MapSelect.pageDownIndex", &mapSelectState->pageDownIndex, sizeof(s32));
+    KV_Global_Set_S32("ProxyMM_DevTools.MapSelect.currentScene", mapSelectState->currentScene);
+    KV_Global_Set_S32("ProxyMM_DevTools.MapSelect.opt", mapSelectState->opt);
+    KV_Global_Set_S32("ProxyMM_DevTools.MapSelect.topDisplayedScene", mapSelectState->topDisplayedScene);
+    KV_Global_Set_S32("ProxyMM_DevTools.MapSelect.pageDownIndex", mapSelectState->pageDownIndex);
 
     // TODO: Persist Selection to config
     MapSelect_LoadGame(mapSelectState, entrance, spawn);
@@ -225,8 +225,8 @@ void BetterMapSelect_Init() {
 
     this->scenes = sBetterScenes;
     this->count = ARRAY_COUNT(sBetterScenes);
-    KV_Get("ProxyMM_DevTools.MapSelect.currentScene", &this->currentScene, sizeof(s32));
-    KV_Get("ProxyMM_DevTools.MapSelect.opt", &this->opt, sizeof(s32));
-    KV_Get("ProxyMM_DevTools.MapSelect.topDisplayedScene", &this->topDisplayedScene, sizeof(s32));
-    KV_Get("ProxyMM_DevTools.MapSelect.pageDownIndex", &this->pageDownIndex, sizeof(s32));
+    this->currentScene = KV_Global_Get_S32("ProxyMM_DevTools.MapSelect.currentScene", this->currentScene);
+    this->opt = KV_Global_Get_S32("ProxyMM_DevTools.MapSelect.opt", this->opt);
+    this->topDisplayedScene = KV_Global_Get_S32("ProxyMM_DevTools.MapSelect.topDisplayedScene", this->topDisplayedScene);
+    this->pageDownIndex = KV_Global_Get_S32("ProxyMM_DevTools.MapSelect.pageDownIndex", this->pageDownIndex);
 }

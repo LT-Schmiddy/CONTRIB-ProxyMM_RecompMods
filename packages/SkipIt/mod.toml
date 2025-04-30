@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_SkipIt"
-version = "0.0.5"
+version = "0.0.6"
 display_name = "SkipIt"
 description =  """
 Various cutscene skip options

@@ -11,6 +11,9 @@ Various cutscene skip options
 - Skip Mask Transformation
 - More planned
 
+## Incompatabilities
+The "Skip song playback" feature is incompatible with `mm_recomp_song_utils`'s skips
+
 ## API
 Because this patches commonly patched functions (CutsceneManager_Start & CutsceneManager_Queue), we are also exposing events so that other mods may make use of this pattern without having to also patch them.
 

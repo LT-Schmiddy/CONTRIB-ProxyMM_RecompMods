@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_DevTools"
-version = "0.0.5"
+version = "0.0.7"
 display_name = "DevTools"
 description =  """
 A collection of developer tools to make my life easier, some ported from 2Ship some created for Recomp.
@@ -20,13 +20,10 @@ short_description = "A collection of developer tools"
 authors = [ "ProxySaw" ]
 game_id = "mm"
 minimum_recomp_version = "1.2.0"
-dependencies = []
-native_libraries = [
-    { name = "ProxyRecomp_KV", funcs = [
-        "KV_Set",
-        "KV_Get",
-        "KV_Remove"] }
+dependencies = [
+    "ProxyMM_KV:0.0.3"
 ]
+native_libraries = []
 
 [inputs]
 elf_path = "../../build/packages/DevTools/mod.elf"

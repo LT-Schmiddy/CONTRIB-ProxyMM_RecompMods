@@ -1,0 +1,26 @@
+[manifest]
+id = "ProxyMM_KV"
+version = "0.0.3"
+display_name = "KV"
+description =  """
+A simple KV Store for N64Recomp projects
+"""
+short_description = "A simple KV Store for N64Recomp projects"
+authors = [ "ProxySaw" ]
+game_id = "mm"
+minimum_recomp_version = "1.2.0"
+dependencies = []
+native_libraries = [
+    { name = "ProxyRecomp_KV003", funcs = [
+        "KV_Get",
+        "KV_Set",
+        "KV_Has",
+        "KV_Remove"] }
+]
+
+[inputs]
+elf_path = "../../build/packages/KV/mod.elf"
+mod_filename = "ProxyMM_KV"
+func_reference_syms_file = "../../Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [ "../../Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "../../Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml", "../../custom_syms.toml" ]
+additional_files = [ "thumb.png" ]
