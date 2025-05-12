@@ -32,8 +32,16 @@ RECOMP_EXPORT bool ObjDepLoader_Load(PlayState* play, u8 segment, s16 objectId) 
     return true;
 }
 
-RECOMP_EXPORT void ObjDepLoader_Unload(u8 segment, s16 objectId) {
+RECOMP_EXPORT void ObjDepLoader_Unload(PlayState* play, u8 segment, s16 objectId) {
     gSegments[segment] = prevGSegments[segment];
+
+    OPEN_DISPS(play->state.gfxCtx);
+
+    gSPSegment(POLY_OPA_DISP++, segment, gSegments[segment]);
+    gSPSegment(POLY_XLU_DISP++, segment, gSegments[segment]);
+
+    CLOSE_DISPS(play->state.gfxCtx);
+
     // At some point we may keep track of how many active loads there are and free the memory when it reaches 0.
     // For now, even with everything loaded, the memory usage is minimal so we aren't going to worry about it.
 }

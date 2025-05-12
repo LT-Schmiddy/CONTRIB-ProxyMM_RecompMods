@@ -7,21 +7,21 @@ This is primarily to work around objects needing to be loaded for drawing comman
 ```cpp
 // Import the functions
 RECOMP_IMPORT("ProxyMM_ObjDepLoader", bool ObjDepLoader_Load(PlayState* play, u8 segment, s16 objectId));
-RECOMP_IMPORT("ProxyMM_ObjDepLoader", void ObjDepLoader_Unload(u8 segment, s16 objectId));
+RECOMP_IMPORT("ProxyMM_ObjDepLoader", void ObjDepLoader_Unload(PlayState* play, u8 segment, s16 objectId));
 
 void MyActor_Draw(Actor* actor, PlayState* play) {
     if (ObjDepLoader_Load(play, 0x06, OBJECT_GI_NUTSMASK)) {
         Matrix_Scale(30.0f, 30.0f, 30.0f, MTXMODE_APPLY);
         GetItem_Draw(play, GID_MASK_DEKU);
 
-        ObjDepLoader_Unload(0x06, OBJECT_GI_NUTSMASK);
+        ObjDepLoader_Unload(play, 0x06, OBJECT_GI_NUTSMASK);
     }
 
     if (ObjDepLoader_Load(play, 0x06, OBJECT_GI_GOLONMASK)) {
         Matrix_Scale(30.0f, 30.0f, 30.0f, MTXMODE_APPLY);
         GetItem_Draw(play, GID_MASK_GORON);
 
-        ObjDepLoader_Unload(0x06, OBJECT_GI_GOLONMASK);
+        ObjDepLoader_Unload(play, 0x06, OBJECT_GI_GOLONMASK);
     }
 }
 ```

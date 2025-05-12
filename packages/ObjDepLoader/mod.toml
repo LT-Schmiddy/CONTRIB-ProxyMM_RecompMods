@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_ObjDepLoader"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "ObjDepLoader"
 description =  """
 A simple workaround for object dependency
