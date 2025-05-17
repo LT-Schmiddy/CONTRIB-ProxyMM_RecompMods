@@ -1,11 +1,21 @@
 #include "recomp_api.h"
 #include "z64extern.h"
 
+#include "z64save.h"
+#include "global.h"
+
+#include "sys_flashrom.h"
+#include "z64horse.h"
+#include "overlays/gamestates/ovl_file_choose/z_file_select.h"
+
+
 RECOMP_IMPORT(".", bool KV_PathUpdateInternal(unsigned char* key));
 RECOMP_IMPORT(".", bool KV_Get(const char* key, void* dest, u32 size, u8 slot));
 RECOMP_IMPORT(".", bool KV_Set(const char* key, void* data, u32 size, u8 slot));
 RECOMP_IMPORT(".", bool KV_Has(const char* key, u8 slot));
 RECOMP_IMPORT(".", bool KV_Remove(const char* key, u8 slot));
+RECOMP_IMPORT(".", bool KV_DeleteSlot(u8 slot));
+
 
 void KV_PathUpdate() {
     unsigned char* new_path = recomp_get_save_file_path();
@@ -107,4 +117,12 @@ RECOMP_EXPORT bool KV_Slot_Has(const char* key) {
 RECOMP_EXPORT bool KV_Slot_Remove(const char* key) {
     KV_PathUpdate(); 
     return KV_Remove(key, gSaveContext.fileNum);
+}
+
+// Hook for deleting file save data
+
+RECOMP_HOOK("Sram_EraseSave") void pre_Sram_EraseSave(FileSelectState* fileSelect2, SramContext* sramCtx, s32 fileNum) {
+    recomp_printf("Deleting File %d\n", fileNum);
+    KV_PathUpdate(); 
+    KV_DeleteSlot((u8)fileNum);
 }

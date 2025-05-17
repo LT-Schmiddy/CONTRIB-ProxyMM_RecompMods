@@ -16,7 +16,10 @@ native_libraries = [
         "KV_Get",
         "KV_Set",
         "KV_Has",
-        "KV_Remove"] }
+        "KV_Remove",
+        "KV_DeleteSlot",
+        "KV_CopySlot"
+    ] }
 ]
 
 [inputs]
