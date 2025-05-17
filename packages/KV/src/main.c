@@ -15,6 +15,7 @@ RECOMP_IMPORT(".", bool KV_Set(const char* key, void* data, u32 size, u8 slot));
 RECOMP_IMPORT(".", bool KV_Has(const char* key, u8 slot));
 RECOMP_IMPORT(".", bool KV_Remove(const char* key, u8 slot));
 RECOMP_IMPORT(".", bool KV_DeleteSlot(u8 slot));
+RECOMP_IMPORT(".", bool KV_CopySlot(u8 old_slot, u8 new_slot));
 
 
 void KV_PathUpdate() {
@@ -122,7 +123,12 @@ RECOMP_EXPORT bool KV_Slot_Remove(const char* key) {
 // Hook for deleting file save data
 
 RECOMP_HOOK("Sram_EraseSave") void pre_Sram_EraseSave(FileSelectState* fileSelect2, SramContext* sramCtx, s32 fileNum) {
-    recomp_printf("Deleting File %d\n", fileNum);
     KV_PathUpdate(); 
     KV_DeleteSlot((u8)fileNum);
+}
+
+RECOMP_HOOK("Sram_CopySave") void pre_Sram_CopySave(FileSelectState* fileSelect2, SramContext* sramCtx) {
+    FileSelectState* fileSelect = fileSelect2;
+    KV_PathUpdate(); 
+    KV_CopySlot((u8)fileSelect->selectedFileIndex, (u8)fileSelect->copyDestFileIndex);
 }
