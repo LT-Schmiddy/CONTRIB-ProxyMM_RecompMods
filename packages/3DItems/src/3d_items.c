@@ -185,7 +185,10 @@ RECOMP_PATCH void GetItem_DrawSmallRupee(PlayState* play, s16 drawId) {
 RECOMP_CALLBACK("*", recomp_after_actor_init) 
 void OnActorInit(PlayState* play, Actor* actor) {
     if (actor->draw == EnItem00_Draw) {
-        actor->draw = EnItem00_3DItemsDraw;
+        EnItem00* enItem00 = (EnItem00*)actor;
+        if (actor->params != ITEM00_HEART_PIECE || enItem00->getItemId == 0) {       
+            actor->draw = EnItem00_3DItemsDraw;
+        }
     }
 }
 

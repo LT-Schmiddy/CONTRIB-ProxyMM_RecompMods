@@ -1,6 +1,7 @@
 # ProxyMM Recomp Mods
 This is a collection of mods made for [Zelda64Recomp](https://github.com/Zelda64Recomp/Zelda64Recomp)'s Majora's Mask
 
+- [3DItems](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/3DItems/) - Replaces 2d Sprites with their 3D counterparts throughout the game.
 - [ActorListIndex](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/ActorListIndex/) - Exposes the index an Actor was placed at for the scene's ActorList command.
 - [Cheats](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/Cheats/) - Various toggle-able cheats.
 - [CustomActor](https://thunderstore.io/c/zelda-64-recompiled/p/ProxyMM/CustomActor/) - A library for defining custom actors
