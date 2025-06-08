@@ -14,3 +14,13 @@ symbols = [
     { name = "FileSelect_Init_NORELOCATE", vram = 0x80813C98 },
     { name = "DayTelop_Init_NORELOCATE", vram = 0x80815820 },
 ]
+
+[[section]]
+name = "..code"
+rom = 0x00B3C000
+vram = 0x800A5AC0
+size = 0x13E4E0
+
+symbols = [
+    { name = "sDrawItemTable", vram = 0x801BB170 },
+]

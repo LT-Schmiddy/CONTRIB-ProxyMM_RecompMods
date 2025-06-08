@@ -1,0 +1,9 @@
+{
+    "name": "3DItems",
+    "version_number": "0.0.2",
+    "website_url": "https://github.com/garrettjoecox/ProxyMM_RecompMods",
+    "description": "Replaces 2d Sprites with their 3D counterparts throughout the game.",
+    "dependencies": [
+        "ProxyMM-ObjDepLoader-0.0.3"
+    ]
+}
